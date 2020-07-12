@@ -1,0 +1,24 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "Creates and devours burgers using express, mysql, handlebars, node js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shmoesolid/Burger.git"
+  },
+  "author": "Shane Koehler",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/shmoesolid/Burger/issues"
+  },
+  "homepage": "https://github.com/shmoesolid/Burger#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.0.0",
+    "mysql": "^2.18.1"
+  }
+}
