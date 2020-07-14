@@ -12,7 +12,7 @@ var burger =
     insertOne: function(key, value, cb)
     {
         orm
-        .insert("burgers", {[key]: value})
+        .insert("burgers", {[key]: value, devoured: 0})
         .then( (res) => cb(res) );
     },
     updateOne: function(tableCol, value, whereKey, whereValue, operator, cb)

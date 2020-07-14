@@ -11,7 +11,7 @@ router.get("/",
         burger.selectAll(
             function(data) 
             {
-                console.log(data);
+                // console.log(data);
                 res.render("index", { burgers: data });
             }
         );
@@ -28,7 +28,7 @@ router.get("/api/burgers",
 router.post("/api/burgers", 
     function(req, res) 
     {
-        var burgerName = req.body.name;
+        var burgerName = req.body.burger_name;
 
         if (!burgerName) 
             return res.status(500).json("Burger string is empty!");
@@ -39,10 +39,7 @@ router.post("/api/burgers",
         burger.insertOne("burger_name", burgerName, 
             function(result)
             {
-                if (!result.changedRows) 
-                    return res.status(404).end();
-                
-                res.status(200).end();
+                res.json({ id: result.insertId });
             }
         );
     }
@@ -54,6 +51,7 @@ router.put("/api/burgers/:id",
         var id = req.params.id;
         var devoured = req.body.devoured;
 
+        if (devoured === null) devoured = 0;
         if (devoured != 0 && devoured != 1)
             return res.json(false);
 

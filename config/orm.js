@@ -30,8 +30,7 @@ var orm =
         operators = [],
         limitArray = [],
         orderBy = "",
-        orderDir = "ASC",
-        //cb
+        orderDir = "ASC"
     ) {
         // make some null corrections for bypass
         if (whereObj === null) whereObj = {};
@@ -87,7 +86,6 @@ var orm =
         args = args.concat(Object.values(whereObj)); // add where values
 
         // run query
-        // this._query(sql, args, (res) => cb(res));
         return await this._query(sql, args);
     },
 
@@ -129,7 +127,6 @@ var orm =
         var args = Object.values(value);
 
         // run query
-        //this._query(sql, args, (res) => cb(res));
         return await this._query(sql, args);
     },
 
@@ -173,7 +170,6 @@ var orm =
         args = args.concat( Object.values(whereObj) );
 
         // run query
-        //this._query(sql, args, (res) => cb(res));
         return await this._query(sql, args);
     },
 
@@ -220,10 +216,6 @@ var orm =
         if (!sql.length) throw "Invalid SQL query";
 
         // run query
-        /*connection.query(queryString, args, function(err, result) {
-            if (err) throw err;
-            cb(result);
-        });*/
         return util
             .promisify(connection.query)
             .call(connection, sql, args);
