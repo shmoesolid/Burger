@@ -5,7 +5,7 @@ var burger =
 {
     all: function(cb)
     {
-        orm.selectAll("table", (res) => cb(res));
+        orm.fetch("burgers", ['*']).then( (res) => cb(res) );
     }
 }
 
