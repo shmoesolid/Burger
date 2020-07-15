@@ -26,6 +26,12 @@ var burger =
         orm
             .fetch("burgers", ['COUNT(*) AS `count`'])
             .then( (res) => cb(res) );
+    },
+    delete: function(whereKey, whereValue, operator, cb)
+    {
+        orm
+            .delete("burgers", {[whereKey]: whereValue}, [operator])
+            .then( (res) => cb(res) );
     }
 }
 

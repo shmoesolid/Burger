@@ -2,7 +2,7 @@
 var config =
 {
     maxBurgerLength: 64,
-    maxBurgers: 15
+    maxBurgers: 32
 };
 
 module.exports = config;

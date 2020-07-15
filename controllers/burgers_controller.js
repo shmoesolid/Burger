@@ -69,4 +69,21 @@ router.put("/api/burgers/:id",
     }
 );
 
+router.delete("/api/burgers/:id", 
+    function(req, res) 
+    {
+        var id = req.params.id;
+
+        burger.delete("id", id, "=",
+            function(result)
+            {
+                if (!result.affectedRows)
+                    return res.status(404).json("Database remains unchanged!  Contanct sytem admin.");
+
+                res.status(200).end();
+            }
+        );
+    }
+);
+
 module.exports = router;

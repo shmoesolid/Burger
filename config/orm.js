@@ -87,7 +87,7 @@ var orm =
         var args = [ tableName ];
         args = args.concat(Object.values(whereObj)); // add where values
 
-        console.log(sql, args);
+        //console.log(sql, args);
 
         // run query
         return await this._query(sql, args);
@@ -203,6 +203,8 @@ var orm =
         
         // build args array
         var args = Object.values(whereObj);
+
+        //console.log(sql, args);
 
         // run query
         return await this._query(sql, args);
