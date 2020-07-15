@@ -59,6 +59,9 @@ $(function() {
                 burger_name: $("#burger").val().trim()
             };
 
+            if (!newBurger.burger_name.length)
+                return;
+
             $.ajax("/api/burgers", 
                 {
                     type: "POST",
