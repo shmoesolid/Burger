@@ -53,7 +53,8 @@ var orm =
         var colString = "";
         for (var i = 0; i < colArray.length; i++)
         {
-            colString += "??";
+            //colString += "??";
+            colString += colArray[i];
             if (i < colArray.length-1) colString += ", ";
         }
 
@@ -81,9 +82,12 @@ var orm =
                 : "")}`;
 
         // build args array
-        var args = colArray; // add cols
-        args.push(tableName); // add table
+        //var args = colArray; // add cols
+        //args.push(tableName); // add table
+        var args = [ tableName ];
         args = args.concat(Object.values(whereObj)); // add where values
+
+        console.log(sql, args);
 
         // run query
         return await this._query(sql, args);

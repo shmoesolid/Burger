@@ -1,19 +1,26 @@
+
 <h3>NOT devoured</h3>
 <ul>
     {{#each burgers}}
         {{#unless devoured}}
+
             {{> burgers/burger-block }}
+            
         {{/unless}}
     {{/each}}
+
 </ul>
 
 <h3>devoured</h3>
 <ul>
     {{#each burgers}}
         {{#if devoured}}
+
             {{> burgers/burger-block }}
+
         {{/if}}
     {{/each}}
+
 </ul>
 
 <h2>Add a burger</h2>

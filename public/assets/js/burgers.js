@@ -2,7 +2,6 @@ $(function() {
     $(".change-devour").on("click", 
         function(event) 
         {
-            
             var id = $(this).data("id");
 
             $.ajax("/api/burgers/" + id, 
@@ -15,6 +14,12 @@ $(function() {
                 {
                     console.log("change to devoured");
                     location.reload();
+                }
+            ).fail(
+                function(xhr, textStatus, errorThrown)
+                {
+                    alert("Could not change devoured status!  See console log for details.")
+                    console.log(xhr, textStatus, errorThrown);
                 }
             );
         }
@@ -37,8 +42,14 @@ $(function() {
             ).then(
                 function()
                 {
-                    console.log("created new burger");
+                    console.log("Created new burger");
                     location.reload();
+                }
+            ).fail(
+                function(xhr, textStatus, errorThrown)
+                {
+                    alert("Coult not add burger!  See console log for details.")
+                    console.log(xhr, textStatus, errorThrown);
                 }
             );
         }

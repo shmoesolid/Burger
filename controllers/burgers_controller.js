@@ -8,13 +8,7 @@ var router = express.Router();
 router.get("/", 
     function(req, res) 
     {
-        burger.selectAll(
-            function(data) 
-            {
-                // console.log(data);
-                res.render("index", { burgers: data });
-            }
-        );
+        burger.selectAll( (data) => res.render("index", { burgers: data }) );
     }
 );
 
@@ -36,12 +30,20 @@ router.post("/api/burgers",
         if (burgerName.length > config.maxBurgerLength)
             return res.status(500).json("Exceeded max burger string length!");
 
-        burger.insertOne("burger_name", burgerName, 
+        burger.count(
             function(result)
             {
-                res.json({ id: result.insertId });
+                if (result[0].count >= config.maxBurgers)
+                    return res.status(500).json("Too many burgers in database already!" );
+
+                burger.insertOne("burger_name", burgerName, 
+                    function(result)
+                    {
+                        res.json({ id: result.insertId });
+                    }
+                );
             }
-        );
+        )
     }
 );
 
@@ -53,13 +55,13 @@ router.put("/api/burgers/:id",
 
         if (devoured === null) devoured = 0;
         if (devoured != 0 && devoured != 1)
-            return res.json(false);
+            return res.status(500).json("Devoured value is invalid!");
 
         burger.updateOne("devoured", devoured, "id", id, "=",
             function(result)
             {
                 if (!result.changedRows) 
-                    return res.status(404).end();
+                    return res.status(404).json("Database remains unchanged!  Contanct sytem admin.");
                 
                 res.status(200).end();
             }
