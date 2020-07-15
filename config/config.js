@@ -1,7 +1,7 @@
 
 var config =
 {
-    maxBurgerLength: 64,
+    maxBurgerLength: 255,
     maxBurgers: 32
 };
 
