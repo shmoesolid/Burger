@@ -67,6 +67,7 @@ $(function() {
             ).then(
                 function()
                 {
+                    $('#burger').val("");
                     console.log("Created new burger");
                     location.reload();
                 }
