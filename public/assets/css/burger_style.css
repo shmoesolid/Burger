@@ -37,14 +37,20 @@ main
 textarea
 {
     resize: none !important;
+    outline: none;
     width: 100%;
     max-width: 450px;
     min-width: 250px;
     height: 100px;
     background-color: #d49144;
-    color: #000;
+    color: #3d2a15;
+    
     border: 2px solid #6b4820;
 }
+
+textarea::placeholder {
+    color: #745129;  
+  }
 
 button
 {
@@ -53,8 +59,7 @@ button
     border: 1px solid #6b4820;
 }
 
-.border-section { border: 2px solid black; }
-.border-notop { border-top:none; }
+.border-section { border-bottom: 2px solid black; }
 
 .create-form
 {
