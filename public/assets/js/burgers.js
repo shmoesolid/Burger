@@ -59,6 +59,8 @@ $(function() {
                 burger_name: $("#burger").val().trim()
             };
 
+            $('#burger').val("");
+
             if (!newBurger.burger_name.length)
                 return;
 
@@ -70,7 +72,6 @@ $(function() {
             ).then(
                 function()
                 {
-                    $('#burger').val("");
                     console.log("Created new burger");
                     location.reload();
                 }

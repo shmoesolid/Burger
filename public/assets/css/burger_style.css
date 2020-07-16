@@ -1,3 +1,5 @@
+
+
 textarea
 {
     width: 100%;
@@ -23,4 +25,8 @@ textarea
 {
     padding: 5px;
 }
+
+.devour table td { padding:5px; }
+.devour table tr:nth-child(even) { background: #EEE; }
+.devour table tr:nth-child(odd) { background: #FFF; }
 
