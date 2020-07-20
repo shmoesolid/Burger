@@ -7,6 +7,9 @@ This is UTSA Coding Bootcamp's week #13 homework that utilizes NodeJS/Express/My
 * Screenshots:
     - https://shmoesolid.github.io/Burger/media/ss1.png
     - https://shmoesolid.github.io/Burger/media/ss2.png
+    
+* Deployed:
+    - https://utsa-burger.herokuapp.com/
 
 ## Table of Contents
 
