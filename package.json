@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/shmoesolid/Burger#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-handlebars": "^5.0.0",
     "mysql": "^2.18.1",
     "util": "^0.12.3"
